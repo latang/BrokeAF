@@ -1,0 +1,46 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div>
+            <input placeholder="message" type="text" id="message"/>
+            <button id="send">Click Me</button>
+            <div id="idk"> 
+                
+            </div>    
+        </div>
+    </body>
+    <script>
+        const username = prompt();
+        const textBar2 = document.getElementById("message");
+        const button = document.getElementById("send");
+        const idc = document.getElementById("idk");
+
+        button.onclick = function() {
+            const message = textBar2.value;
+            sendData(username, message);
+            textBar2.value = "";
+        }
+
+        function getData() {
+           fetch("http://localhost:8080/messages")
+            .then(res => res.text())
+            .then(data => idc.innerHTML = data)
+        }
+
+        function sendData(name, message) {
+            fetch("http://localhost:8080/form", {
+                method: "POST",
+                body: JSON.stringify({ username: name, message: message}),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.text())
+                .then(data => idc.innerHTML = data)
+        }
+
+        setInterval(getData, 500);
+    </script>
+</html>
