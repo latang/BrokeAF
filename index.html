@@ -23,13 +23,13 @@
         }
 
         function getData() {
-           fetch("http://localhost:8080/messages")
+           fetch("/messages")
             .then(res => res.text())
             .then(data => idc.innerHTML = data)
         }
 
         function sendData(name, message) {
-            fetch("http://localhost:8080/form", {
+            fetch("/form", {
                 method: "POST",
                 body: JSON.stringify({ username: name, message: message}),
                 headers: {
