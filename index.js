@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
+
 const messages = [];
 
 app.use(bodyParser.json());
@@ -11,34 +12,32 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.set('view engine', 'pug')
+
 // log stuff
 app.use(morgan("dev"));
 
 // send the home page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.render('index', { messages: messages })
 });
 
-const getMessageOutput = messages => {
-    return messages.map(function (message) {
-        return message.username + ":" + message.message;
-    }).join("<br />");
-}
+app.get("/main.css", (req, res) => {
+    res.sendFile(path.join(__dirname, "main.css"));
+})
+
+app.get("/debug", (req, res) => {
+    res.send({ messages: messages });
+});
 
 // add a message
 app.post("/form", (req, res) => {
+    console.log(req.body);
     const username = req.body.username;
     const message = req.body.message;
-    messages.push({username: username, message: message});
-
-    const out = getMessageOutput(messages);
-    res.send(out);
-});
-
-// get messages
-app.get("/messages", (req, res) => {
-    const out = getMessageOutput(messages);
-    res.send(out);
+    const angry = req.body.angry;
+    messages.push({username: username, text: message, angry:angry});
+    res.redirect("/");
 });
 
 app.listen(process.env.PORT || 8080);

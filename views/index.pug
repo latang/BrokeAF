@@ -1,0 +1,23 @@
+html
+  head
+    title Broke AF
+    link(rel = "stylesheet", href = "main.css")
+  body
+    h1 Broke AF
+  
+    form(action="/form", method="POST")
+      input(placeholder = "username", name = "username")
+      br
+      input(placeholder = "message", name = "message")
+      br
+      input(type = "checkbox", name = "angry") 
+      text  angry text
+      br
+      button Submit
+    div
+      each message in messages
+        if (message.angry == "on")
+          p(class="angry") #{message.username}: #{message.text}
+
+        else
+          p #{message.username}: #{message.text}
