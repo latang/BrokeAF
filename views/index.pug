@@ -17,7 +17,9 @@ html
     div
       each message in messages
         if (message.angry == "on")
-          p(class="angry") #{message.username}: #{message.text}
+          p(class="angry") #{message.time} - #{message.username}: #{message.text}
+          <div id="fb-root"></div>
 
         else
-          p #{message.username}: #{message.text}
+          p #{message.time} - #{message.username}: #{message.text}
+          <div id="fb-root"></div>
