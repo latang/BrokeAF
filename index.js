@@ -36,7 +36,32 @@ app.post("/form", (req, res) => {
     const username = req.body.username;
     const message = req.body.message;
     const angry = req.body.angry;
-    messages.push({username: username, text: message, angry:angry});
+    const time = req.body.time;
+    const date = new Date();
+    var hour = date.getHours();
+    var ampm
+
+    if (hour < 12){
+        ampm = "AM"
+    }
+    else{
+        ampm = "PM";
+        hour = hour - 12; 
+    }
+
+    var min = date.getMinutes();
+    if(min < 10){
+        min = "0" + min;
+    }
+
+    const messageObject = {
+        username: username, 
+        text: message, 
+        angry: angry, 
+        time: hour + ":" + min + " " + ampm
+    }
+    messages.push(messageObject);
+
     res.redirect("/");
 });
 
