@@ -4,6 +4,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
 
+const emoji = require("./emoji");
+
 const messages = [];
 
 app.use(bodyParser.json());
@@ -34,7 +36,7 @@ app.get("/debug", (req, res) => {
 app.post("/form", (req, res) => {
     console.log(req.body);
     const username = req.body.username;
-    const message = req.body.message;
+    const message = emoji.replace(req.body.message);
     const angry = req.body.angry;
     const time = req.body.time;
     const date = new Date();
