@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brok3 AF</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="index.js" type="text/javascript">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>	</script>
+	<link href="base.css" rel="stylesheet" type="text/css">
+	<style>
+	              h1  { 
+	                  color: #808080;   
+	              }
+                #pagination {
+                  /*bottom: 0;
+                  position: fixed;*/
+                  position:absolute;
+                  width:5px;
+                  height:0px;
+                  background:#063;
+                  bottom:0px;
+                  right:50%;
+                }
+                #carouselExampleControls{
+                  display: table;
+                  margin: 0 auto;
+                }
+                .img-thing {
+                  height: 300px;
+                  width:500px;
+                }
+	</style>
+</head>
+<body>
+<div class="container">
+	<img src="./header.png" />
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color: #339966;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Job Types</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="#">Janitorial</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Secretarial</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Retail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Manual Labor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Miscellaneous</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="toilets-cadet-pro.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="secretary.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="..." alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+-->
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid img-thing" src="toilets-cadet-pro.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid img-thing" src="secretary.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid img-thing" src="manualLabor.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
+<h1> All Jobs </h1>
+
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Fish Cleaner</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Make fish clean again</h6>
+    <p class="card-text">
+      Clean fish to make them clean. $15/hr
+    </p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Card title</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+<!--
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action">Secretarial</a>
+  <a href="#" class="list-group-item list-group-item-action">Retail</a>
+  <a href="#" class="list-group-item list-group-item-action">Tech</a>
+  <a href="#" class="list-group-item list-group-item-action">Manual Labor</a>
+  <a href="#" class="list-group-item list-group-item-action">Miscellaneous</a>
+</div>
+-->
+  <nav aria-label="Page navigation example" id="pagination">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+
+</div>
+</body>
+</html>
