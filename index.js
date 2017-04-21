@@ -6,7 +6,7 @@ const path = require("path");
 
 const emoji = require("./emoji");
 
-const messages = [];
+const jobs = [];
 
 app.use(bodyParser.json());
 
@@ -15,13 +15,29 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.set('view engine', 'pug')
+app.use(express.static(path.join(__dirname, "static")));
 
 // log stuff
 app.use(morgan("dev"));
 
 // send the home page
 app.get("/", (req, res) => {
-    res.render('index', { messages: messages })
+    res.render('index', { jobs: jobs })
+});
+
+app.get("/website", (req, res) => {
+    res.render('website', {
+        category: "All Jobs",
+        jobs: jobs 
+    });
+});
+
+app.get("/website/:category", (req, res) => {
+    const category = req.params.category;
+    res.render("website", {
+        category: category,
+        jobs: jobs.filter(job => job.category === category)
+    });
 });
 
 app.get("/main.css", (req, res) => {
@@ -29,16 +45,26 @@ app.get("/main.css", (req, res) => {
 })
 
 app.get("/debug", (req, res) => {
-    res.send({ messages: messages });
+    res.send({ jobs: jobs });
 });
 
-// add a message
+
+// add a job
 app.post("/form", (req, res) => {
     console.log(req.body);
-    const username = req.body.username;
-    const message = emoji.replace(req.body.message);
+    const employer = req.body.employer;
+    const title = req.body.title;
+    
+    var c = index.getElementById("category");
+    var category = category.option[category.selectedIndex].text();
+    
+    const description = emoji.replace(req.body.description);
+    const wage = req.body.wage;
+    const contact = req.body.contact;
     const angry = req.body.angry;
     const time = req.body.time;
+    const email = req.body.email;
+    var website = req.body.website;
     const date = new Date();
     var hour = date.getHours();
     var ampm
@@ -56,15 +82,27 @@ app.post("/form", (req, res) => {
         min = "0" + min;
     }
 
-    const messageObject = {
-        username: username, 
-        text: message, 
-        angry: angry, 
+   if(website.includes("http")){
+        website = true
+    }
+    else{
+        website = "https://" + website
+    }
+
+    const jobObject = {
+        employer: employer,
+        title: title,
+        category: category,
+        description: description, 
+        wage: wage,
+        contact: contact,
+        email: email,
+        website: website,
         time: hour + ":" + min + " " + ampm
     }
-    messages.push(messageObject);
+    jobs.push(jobObject);
 
-    res.redirect("/");
+    res.redirect("/website");
 });
 
 app.listen(process.env.PORT || 8080);

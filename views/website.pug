@@ -1,0 +1,103 @@
+doctype html
+html
+  head
+    title Brok3 AF
+
+    // JS Deps
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', crossorigin='anonymous')
+
+    // Bootstrap
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', rel='stylesheet')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', crossorigin='anonymous')
+
+    // Main js
+    link(href='index.js', type='text/javascript')
+    
+    // Main css
+    link(href='/base.css', rel='stylesheet', type='text/css')
+
+  body
+    .container
+      img(src='/header.png')
+      nav.navbar.navbar-toggleable-md.navbar-light.bg-faded(style='background-color: #339966;')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-controls='navbarTogglerDemo01', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarTogglerDemo01.collapse.navbar-collapse
+          a.navbar-brand(href='#') Job Types   
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item.active
+              a.nav-link(href='/website')
+                | Home
+                span.sr-only (current)
+            |    
+            li.nav-item
+              a.nav-link(href='/website/janitorial') Janitorial
+            |       
+            li.nav-item
+              a.nav-link(href='/website/secretarial') Secretarial
+            |       
+            li.nav-item
+              a.nav-link(href='/website/retail') Retail
+            |
+            li.nav-item
+              a.nav-link(href='/website/hospitality') Hospitality
+            |       
+            li.nav-item
+              a.nav-link(href='/website/miscellaneous') Miscellaneous
+          |     
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2(type='text', placeholder='Search')
+            |       
+            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+      #carouselExampleControls.carousel.slide(data-ride='carousel')
+        .carousel-inner(role='listbox')
+          .carousel-item.active
+            img.d-block.img-fluid.img-thing(src='/toilets-cadet-pro.jpg', alt='First slide')
+          |     
+          .carousel-item
+            img.d-block.img-fluid.img-thing(src='/secretary.jpg', alt='Second slide')
+          |     
+          .carousel-item
+            img.d-block.img-fluid.img-thing(src='/manualLabor.jpg', alt='Third slide')
+        |   
+        a.carousel-control-prev(href='#carouselExampleControls', role='button', data-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          |     
+          span.sr-only Previous
+        |   
+        a.carousel-control-next(href='#carouselExampleControls', role='button', data-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          |     
+          span.sr-only Next
+      h1  #{catagory}
+      each job in jobs
+        .card
+            .card-block
+                h4.card-title #{job.title}
+                 
+                h6.card-subtitle.mb-2.text-muted #{job.employer}
+                  
+                p.card-text #{job.category} #{job.description} 
+                p.card-text #{job.wage}
+                
+                p.card-text Call me maybe? #{job.contact}
+                a.card-link(href=job.website) View my website
+                a.card-link(href='mailto://'+job.email) Email
+
+      nav#pagination(aria-label='Page navigation example')
+        ul.pagination.justify-content-center
+          li.page-item.disabled
+            a.page-link(href='#', tabindex='-1') Previous
+          |     
+          li.page-item
+            a.page-link(href='#') 1
+          |     
+          li.page-item
+            a.page-link(href='#') 2
+          |     
+          li.page-item
+            a.page-link(href='#') 3
+          |     
+          li.page-item
+            a.page-link(href='#') Next

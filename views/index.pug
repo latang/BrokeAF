@@ -6,19 +6,34 @@ html
     h1 Broke AF
   
     form(action="/form", method="POST")
-      input(placeholder = "username", name = "username")
+      input(placeholder = "Employer", name = "employer")
       br
-      input(placeholder = "message", name = "message")
+      input(placeholder = "Job Title", name = "title")
       br
-      input(type = "checkbox", name = "angry") 
-      text  angry text
+      input(placeholder = "Description", name = "description")  
       br
+      input(placeholder = "Wage", name = "wage")
+      br
+      input(placeholder = "Phone Number", name = "contact")
+      br
+      input(placeholder = "Website", name = "website")
+      br
+      input(placeholder = "Email", name = "email")
+      br
+      select(name="category")
+        option(value = "janitorial") Janitorial
+        option(value = "secretarial") Secretarial
+        option(value = "retail") Retail
+        option(value = "hospitality") Hospitality
+        option(value = "miscellaneous") Miscellaneous
       button Submit
-    div
-      each message in messages
-        if (message.angry == "on")
-          p(class="angry") #{message.time} - #{message.username}: #{message.text}
 
-        else
-          p #{message.time} - #{message.username}: #{message.text}
-          
+    div
+      each job in jobs
+        div
+          p #{job.time} - Employer: #{job.employer} 
+          p Job Title: #{job.title} 
+          p Category #{job.category.text()} –– Job Description: #{job.description}
+          p Wage: #{job.wage} 
+          p Telephone Number: #{job.contact}
+          p Website: #{job.website}
