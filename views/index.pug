@@ -3,37 +3,39 @@ html
     title Broke AF
     link(rel = "stylesheet", href = "main.css")
   body
-    h1 Broke AF
-  
-    form(action="/form", method="POST")
-      input(placeholder = "Employer", name = "employer")
-      br
-      input(placeholder = "Job Title", name = "title")
-      br
-      input(placeholder = "Description", name = "description")  
-      br
-      input(placeholder = "Wage", name = "wage")
-      br
-      input(placeholder = "Phone Number", name = "contact")
-      br
-      input(placeholder = "Website", name = "website")
-      br
-      input(placeholder = "Email", name = "email")
-      br
-      select(name="category")
-        option(value = "janitorial") Janitorial
-        option(value = "secretarial") Secretarial
-        option(value = "retail") Retail
-        option(value = "hospitality") Hospitality
-        option(value = "miscellaneous") Miscellaneous
-      button Submit
+    div(id="meh")
+      div
+        h1 Broke AF
 
-    div
-      each job in jobs
+        form(action="/form", method="POST")
+          input(placeholder = "Employer", name = "employer", class = "classy")
+          br
+          input(placeholder = "Job Title", name = "title")
+          br
+          input(placeholder = "Description", name = "description")  
+          br
+          input(placeholder = "Wage", name = "wage")
+          br
+          input(placeholder = "Phone Number", name = "contact")
+          br
+          input(placeholder = "Website", name = "website")
+          br
+          input(placeholder = "Email", name = "email")
+          br
+          select(name = "category")
+            option(value = "janitorial") Janitorial
+            option(value = "secretarial") Secretarial
+            option(value = "retail") Retail
+            option(value = "hospitality") Hospitality
+            option(value = "miscellaneous") Miscellaneous
+          button Submit
+
         div
-          p #{job.time} - Employer: #{job.employer} 
-          p Job Title: #{job.title} 
-          p Category #{job.category.text()} –– Job Description: #{job.description}
-          p Wage: #{job.wage} 
-          p Telephone Number: #{job.contact}
-          p Website: #{job.website}
+          each job in jobs
+            div
+              p #{job.time} - Employer: #{job.employer} 
+              p Job Title: #{job.title} 
+              p Category #{job.category} –– Job Description: #{job.description}
+              p Wage: #{job.wage} 
+              p Telephone Number: #{job.contact}
+              p Website: #{job.website}

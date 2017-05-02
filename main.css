@@ -1,3 +1,8 @@
 .angry{
     color: red
 }
+
+#meh {
+    display: flex;
+    justify-content: center;
+}

@@ -1,16 +1,6 @@
       h1  {
       color: #808080;
       }
-      #pagination {
-      /*bottom: 0;
-      position: fixed;*/
-      position:absolute;
-      width:5px;
-      height:0px;
-      background:#063;
-      bottom:0px;
-      right:50%;
-      }
       #carouselExampleControls{
       display: table;
       margin: 0 auto;

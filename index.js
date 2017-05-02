@@ -33,7 +33,8 @@ app.get("/website", (req, res) => {
 });
 
 app.get("/website/:category", (req, res) => {
-    const category = req.params.category;
+    const [first, ...rest] = req.params.category;
+    const category = [first.toUpperCase(), ...rest].join("");
     res.render("website", {
         category: category,
         jobs: jobs.filter(job => job.category === category)
@@ -54,10 +55,9 @@ app.post("/form", (req, res) => {
     console.log(req.body);
     const employer = req.body.employer;
     const title = req.body.title;
-    
-    var c = index.getElementById("category");
-    var category = category.option[category.selectedIndex].text();
-    
+
+    const [first, ...rest] = req.body.category;
+    const category = [first.toUpperCase(), ...rest].join("");
     const description = emoji.replace(req.body.description);
     const wage = req.body.wage;
     const contact = req.body.contact;
