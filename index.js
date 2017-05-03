@@ -59,7 +59,7 @@ app.post("/form", (req, res) => {
     const [first, ...rest] = req.body.category;
     const category = [first.toUpperCase(), ...rest].join("");
     const description = emoji.replace(req.body.description);
-    const wage = req.body.wage;
+    var wage = req.body.wage;
     const contact = req.body.contact;
     const angry = req.body.angry;
     const time = req.body.time;
@@ -88,13 +88,19 @@ app.post("/form", (req, res) => {
     else{
         website = "https://" + website
     }
+    if(wage.includes("$")){
+        wage = true;
+    }
+    else{
+        wage = "$" + wage;
+    }
 
     const jobObject = {
         employer: employer,
         title: title,
         category: category,
         description: description, 
-        wage: "$" + wage,
+        wage: wage,
         contact: contact,
         email: email,
         website: website,
