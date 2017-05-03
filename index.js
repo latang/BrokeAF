@@ -94,7 +94,7 @@ app.post("/form", (req, res) => {
         title: title,
         category: category,
         description: description, 
-        wage: wage,
+        wage: "$" + wage,
         contact: contact,
         email: email,
         website: website,

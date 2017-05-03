@@ -5,30 +5,39 @@ html
   body
     div(id="meh")
       div
-        h1 Broke AF
+        h1 Broke AF Form
 
         form(action="/form", method="POST")
           input(placeholder = "Employer", name = "employer", class = "classy")
           br
-          input(placeholder = "Job Title", name = "title")
           br
-          input(placeholder = "Description", name = "description")  
+          input(placeholder = "Job Title", name = "title", class = "classy")
           br
-          input(placeholder = "Wage", name = "wage")
           br
-          input(placeholder = "Phone Number", name = "contact")
+          input(placeholder = "Description", name = "description", class = "classy")  
           br
-          input(placeholder = "Website", name = "website")
           br
-          input(placeholder = "Email", name = "email")
+          input(placeholder = "Wage", name = "wage", class = "classy")
           br
-          select(name = "category")
+          br
+          input(placeholder = "Phone Number", name = "contact", class = "classy")
+          br
+          br
+          input(placeholder = "Website", name = "website", class = "classy")
+          br
+          br
+          input(placeholder = "Email", name = "email", class = "classy")
+          br
+          br
+          select(name = "category", class = "classy")
             option(value = "janitorial") Janitorial
             option(value = "secretarial") Secretarial
             option(value = "retail") Retail
             option(value = "hospitality") Hospitality
             option(value = "miscellaneous") Miscellaneous
-          button Submit
+          br
+          br
+          button(class = "button") Submit
 
         div
           each job in jobs

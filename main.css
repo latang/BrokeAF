@@ -6,3 +6,16 @@
     display: flex;
     justify-content: center;
 }
+
+.classy{
+    padding: 15px;
+    width: 500px;
+    height: 50px;
+}
+
+.button{
+    padding: 15px;
+    width: 200px;
+    height: 50px;
+    color:red;
+}
